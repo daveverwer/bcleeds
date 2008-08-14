@@ -105,34 +105,13 @@ static NSString* feedURL = @"http://search.twitter.com/search.atom?q=%23barcamp"
 	return cell;
 }
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//	 // Navigation logic
-//}
-//
-//
-//- (void)viewWillAppear:(BOOL)animated {
-//	[super viewWillAppear:animated];
-//}
-//
-//- (void)viewDidAppear:(BOOL)animated {
-//	[super viewDidAppear:animated];
-//}
-//
-//- (void)viewWillDisappear:(BOOL)animated {
-//}
-//
-//- (void)viewDidDisappear:(BOOL)animated {
-//}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	// Return YES for supported orientations
-  return YES;
 	return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (void)didReceiveMemoryWarning {
-	[super didReceiveMemoryWarning]; // Releases the view if it doesn't have a superview
-	// Release anything that's not essential, such as cached data
+	[super didReceiveMemoryWarning];
 }
 
 - (void)dealloc {
