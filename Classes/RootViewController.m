@@ -11,7 +11,7 @@
 
 @implementation RootViewController
 
-static NSString* feedURL = @"http://search.twitter.com/search.atom?q=%23barcamp";
+static NSString* feedURL = @"http://search.twitter.com/search.atom?q=%23barcampleeds08";
 
 #pragma mark XML Parsing
 - (void)fetchFeed:(NSString*)feed {
@@ -95,18 +95,33 @@ static NSString* feedURL = @"http://search.twitter.com/search.atom?q=%23barcamp"
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
-  //  CGRect a = CGRectMake(0.0, 0.0, 320.0, 80.0);
-
   UITableViewCell *cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:nil] autorelease];
-	int index = [indexPath indexAtPosition:[indexPath length]-1];
-  [cell setText:[[tweets objectAtIndex:index] objectForKey:@"text"]];
-	
-	// Set up the cell
+  
+  NSLog(@"%s", _cmd);
+
+  NSString *tweetAuthor = [[tweets objectAtIndex:[indexPath row]] objectForKey:@"author"];
+  UILabel *tweetAuthorView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 320, 20.0)];
+	[tweetAuthorView setText:tweetAuthor];
+	[tweetAuthorView setFont:[UIFont boldSystemFontOfSize:14]];
+  [tweetAuthorView setBackgroundColor:[UIColor grayColor]];
+  [tweetAuthorView setTextColor:[UIColor whiteColor]];
+  [[cell contentView] addSubview:tweetAuthorView];
+	[tweetAuthorView release];
+  
+  NSString *tweetText = [[tweets objectAtIndex:[indexPath row]] objectForKey:@"text"];
+  UILabel *tweetTextView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 20.0, 320, 44.0)];
+	[tweetTextView setText:tweetText];
+	[tweetTextView setNumberOfLines:3];
+	[tweetTextView setFont:[UIFont systemFontOfSize:13]];
+  [[cell contentView] addSubview:tweetTextView];
+	[tweetTextView release];
+
 	return cell;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	// Return YES for supported orientations
+  return YES;
 	return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
