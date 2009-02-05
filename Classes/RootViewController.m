@@ -11,7 +11,7 @@
 
 @implementation RootViewController
 
-static NSString* feedURL = @"http://search.twitter.com/search.atom?q=%23barcampleeds08";
+static NSString* feedURL = @"http://search.twitter.com/search.atom?q=barcamp";
 
 #pragma mark XML Parsing
 - (void)fetchFeed:(NSString*)feed {
