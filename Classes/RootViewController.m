@@ -97,8 +97,6 @@ static NSString* feedURL = @"http://search.twitter.com/search.atom?q=barcamp";
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
   UITableViewCell *cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:nil] autorelease];
   
-  NSLog(@"%s", _cmd);
-
   NSString *tweetAuthor = [[tweets objectAtIndex:[indexPath row]] objectForKey:@"author"];
   UILabel *tweetAuthorView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 320, 20.0)];
 	[tweetAuthorView setText:tweetAuthor];
